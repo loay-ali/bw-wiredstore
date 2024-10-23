@@ -1,0 +1,56 @@
+.bw-image-list > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bw-image-list > ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.bw-image-list > ul li {
+  width: 45%;
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.bw-image-list > ul li input[type=radio] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  border: none;
+  background: none;
+}
+.bw-image-list > ul li input[type=radio]:focus {
+  outline: none;
+  box-shadow: none;
+}
+.bw-image-list > ul li input[type=radio]:checked::before {
+  font-family: dashicons;
+  font-size: 15px;
+  content: "\f147";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -5px;
+  inset-inline-end: -5px;
+  background-color: greenyellow;
+  color: #000;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 90q;
+}
+.bw-image-list > ul li img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=customize.css.map */

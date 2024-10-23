@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Font Awesome",
+		"slug": "fontawesome",
+		"url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+		"css": "fai"
+	},
+	{
+		"title": "Linear Icons",
+		"slug": "linearicons",
+		"url": "https://cdn.linearicons.com/free/1.0.0/icon-font.min.css",
+		"css": "li"
+	},
+	{
+		"title": "Feather Icons",
+		"slug": "feathericons",
+		"url": "https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.2/feather.min.js",
+		"css": "fi"
+	},
+	{
+		"title": "Bootstrap Icons",
+		"slug": "bootstrapicons",
+		"url": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css",
+		"css": "bi"
+	},
+	{
+		"title": "Flat Icons",
+		"slug": "flatuiicons",
+		"url": "https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css",
+		"css": "fui"
+	}
+]

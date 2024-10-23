@@ -1,0 +1,76 @@
+<style>
+body { position:absolute;inset:0;height:100%;width:100%;}
+@keyframes bw_loading_animation {
+    0% { transform:rotate(0deg);}
+    100% { transform:rotate(360deg);}
+}
+#bw-loading-container-element {
+
+    width:150px;
+    height:150px;
+
+    border-radius:90q;
+
+    position:absolute;
+    top:calc(50% - 50px);
+    left:calc(50% - 50px);
+
+    animation: bw_loading_animation 2.5s linear infinite;
+}
+.bw-loading-element {
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    background:currentColor;
+    color:inherit;
+
+    border-radius:90q;
+
+    top:0;
+    left:calc(50% - 12.5px);
+}
+
+#bw-loading-element-2 {
+
+    top:calc((50% - 12.5px) - 45px);
+    left:calc((50% - 12.5px) + 45px);
+}
+#bw-loading-element-3 {
+
+    top:calc(50% - 12.5px);
+    left:calc(100% - 25px);
+}
+#bw-loading-element-4 {
+
+    top:calc((50% - 12.5px) + 45px);
+    left:calc((50% - 12.5px) + 45px);
+}
+#bw-loading-element-5 {
+
+    top:calc(100% - 25px);
+    left:calc(50% - 12.5px);
+}
+#bw-loading-element-6 {
+
+    top:calc(100% - 45px);
+    left:calc((50% - 60px));
+}
+#bw-loading-element-7 {
+
+    top:calc(50% - 12.5px);
+    left:0;
+}
+#bw-loading-element-8 {top:calc((50% - 12.5px) - 45px);left:calc((50% - 12.5px) - 45px)}
+</style>
+<div id = 'bw-loading-container-element'>
+    <div class="bw-loading-element" id="bw-loading-element-1"></div>
+    <div class="bw-loading-element" id="bw-loading-element-2"></div>
+    <div class="bw-loading-element" id="bw-loading-element-3"></div>
+    <div class="bw-loading-element" id="bw-loading-element-4"></div>
+    <div class="bw-loading-element" id="bw-loading-element-5"></div>
+    <div class="bw-loading-element" id="bw-loading-element-6"></div>
+    <div class="bw-loading-element" id="bw-loading-element-7"></div>
+    <div class="bw-loading-element" id="bw-loading-element-8"></div>
+</div>

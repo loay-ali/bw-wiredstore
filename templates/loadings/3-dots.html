@@ -1,0 +1,33 @@
+<style>
+    #bw-loading-element-1,
+    #bw-loading-element-2,
+    #bw-loading-element-3 {
+
+        position:absolute;
+
+        width:50px;
+        height:50px;
+
+        color: inherit;
+        background: currentColor;
+
+        border-radius:90q;
+
+        top:calc(50% - 25px);
+        left:calc((50% - 25px) - 60px);
+
+        animation: bw_loading_animation 1.0s linear infinite;
+    }
+
+    #bw-loading-element-2 { left:calc(50% - 25px);animation-delay:0.33333333s;}
+    #bw-loading-element-3 { left:calc((50% - 25px) + 60px);animation-delay: 0.6666666s;}
+
+    @keyframes bw_loading_animation {
+        0% { opacity:1;}
+        50% { opacity:0;}
+        100% { opacity:1;}
+    }
+</style>
+<div id = 'bw-loading-element-1'></div>
+<div id = 'bw-loading-element-2'></div>
+<div id = 'bw-loading-element-3'></div>

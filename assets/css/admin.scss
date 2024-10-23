@@ -1,0 +1,36 @@
+@use '_bw-lib' as bw-lib;
+
+//** Adminbar Sizes **
+$bar_sizes: (
+
+	"large": (
+		"height": 32px,
+		"media":  "min-width: 783px"
+	),
+	"small": (
+		"height": 46px,
+		"media":  "max-width: 782px"
+	)
+);
+
+//Handle Wordpress Admin Bar
+body.admin-bar {
+
+	position:relative !important;
+
+	@media(map_get(map_get($bar_sizes,'large'),'media')) { padding-top:46px;}
+
+	@media(map_get(map_get($bar_sizes,'small'),'media')) { padding-top:32px;}
+
+	@media(max-width:(map_get(bw-lib.$sizes,'medium') - 1)) {
+
+		//Fix Wordpress Admin Bar For Uppernav In Small Size.
+		& #header-menu { margin-top:46px;}		
+	}
+
+	@media(min-width:map_get(bw-lib.$sizes,'large')) {
+
+		//Fix Uppernav On Admin Bar Is Visible.
+		& #header-menu { top:32px;}
+	}
+}

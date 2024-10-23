@@ -1,0 +1,36 @@
+#main-container {
+	
+	padding:20px;
+}
+
+.slideshow #num-of-slides {
+	
+	flex-direction:row-reverse;
+}
+
+/* Slide Show */
+.slideshow {
+	
+	direction:ltr;
+}
+
+.slideshow #slide-move-right { left:10px;}
+.slideshow #slide-move-left { left:calc(100% - 58px) !important;}
+
+/* Menu Buttons ( Phone View ) */
+#main-header button#open-menu,
+#main-header button#close-menu {
+	
+	right:initial;
+	left:10px;
+}
+
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
+	
+	right:auto;
+}
+
+
+@import 'css/jetpack/jetpack-rtl';
+
+@import 'css/woocommerce/wc-style-rtl';

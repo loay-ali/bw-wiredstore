@@ -1,0 +1,25 @@
+body.admin-bar {
+  position: relative !important;
+}
+@media (min-width: 783px) {
+  body.admin-bar {
+    padding-top: 46px;
+  }
+}
+@media (max-width: 782px) {
+  body.admin-bar {
+    padding-top: 32px;
+  }
+}
+@media (max-width: 749px) {
+  body.admin-bar #header-menu {
+    margin-top: 46px;
+  }
+}
+@media (min-width: 900px) {
+  body.admin-bar #header-menu {
+    top: 32px;
+  }
+}
+
+/*# sourceMappingURL=admin.css.map */

@@ -1,0 +1,55 @@
+@use 'sass:color';
+@use 'sass:list';
+//بسم الله الرحمن الرحيم
+
+// BlackWire Sass Library 
+//
+// Content:.
+// - Default Colors.
+// - Z-Index Mixin.
+// - Sizes Variables.
+//
+
+//** Default Colors **
+$colors: (
+
+	"black":#000,
+	"white":#FFF,
+	"red":	#f00,
+	"blue": #00f,
+	"green":#0f0,
+	"yellow":#ff0,
+	"purple":#f0f,
+	"gray":	 #444
+);
+
+//** Z-index Layers **
+//
+//	Z_Index => Define (z-index) Layers In The Website.
+//	(args) 	=>
+//		- $layer: ( 'base','level-1','level-2','level-3','top' )
+//		- $level: (1..10)
+//
+@function z_index($layer,$level: 1) {
+
+	$layers: (
+		'base': 	990,
+		'level-1': 	1000,
+		'level-2': 	1010,
+		'level-3': 	1020,
+		'level-4': 	1030,
+		'level-5': 	1040,
+		'top':    	1050);
+
+	@return map-get($layers,$layer) + $level;
+}
+
+//** Screen Sizes **
+$sizes: (
+
+	'x-small':	250px,//Super Small ( For Smart Watches )
+	'small': 	400px,
+	'medium': 	750px,
+	'large': 	900px,
+	'x-large': 	1800px
+) !default;

@@ -1,0 +1,101 @@
+//بسم الله الرحمن الرحيم
+
+#wpadminbar { display:none;}
+
+#main-container { padding:0;}
+
+//Disable Going Up Button.
+#going-up { display:none !important;}
+
+//Header.
+#main-header {
+
+	padding:5px;
+}
+
+#site-identity img {
+
+	max-width:30vw !important;
+}
+
+#site-title {
+
+	display:none;
+}
+
+#open-menu,
+#close-menu {
+
+	border-radius:50px;
+	border:none;
+	height:50px;
+	width:50px;
+	font-size:10px;
+}
+
+#header-menu { 
+
+	height:100%;
+	font-size:15px;
+}
+
+#header-widgets { display:none;}
+/* Header End */
+
+/* Slideshow */
+.slideshow {
+	
+	#pause-slide { display:none;}
+	
+	.caption { overflow-y:auto;}
+}
+/* Slideshow End */
+
+/* Grid Section */
+.grid-section {
+
+	padding-bottom:0 !important;
+}
+
+.grid-numbers,
+.grid-move {
+	
+	display:none;
+}
+
+/* Grid Section End */
+
+/* Page Template */
+#page-header,
+#page-content { 
+
+	padding:7px;
+	
+	img { height:auto;}
+}
+
+/* Page Template End */
+
+/* Common */
+.tabs-widget,
+.slideshow,
+.normal-section,
+.grid-section,
+.stat-widget,
+.menu-phone,
+.menu-e-mails,
+.application,
+.social,
+footer
+ {
+	*:not(h2) { font-size:16px;}
+	img { max-width:50px;height:auto;}
+}
+
+h2 { font-size:20px;}
+
+[appear-effect] { 
+
+	opacity:1.0 !important;
+	transform:none !important;
+}

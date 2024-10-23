@@ -1,0 +1,70 @@
+//Fallback ( Link Icon )
+&:before { content:"";font-family:"Font Awesome 5 Free";}
+
+//Set Default Value For The Coming Icons.
+&:before { font-family:"Font Awesome 5 Brands";font-weight:900;font-size:25px;}
+
+$social: (
+	
+	'facebook'		: '\f39e',
+	'twitter' 	 	: '\f099',
+	'youtube' 	 	: '\f167',
+	'instagram'	 	: '\f16d',
+	'whatsapp'	 	: '\f232',
+	'vimeo'		 	: '\f40a',
+	'app store'		: '\f36f',
+	'google play'	: '\f3ab',
+	'behance'		: '\f1b4',
+	'github'		: '\f09b',
+	'amazon'		: '\f270',
+	'apple'			: '\f179',
+	'audible'		: '\f373',
+	'bitcoin'		: '\f379',
+	'blogger'		: '\f37c',
+	'codepen'		: '\f1cb',
+	'deezer'		: '\e077',
+	'discord'		: '\f392',
+	'dribbble'		: '\f17d',
+	'ebay'			: '\f4f4',
+	'figma'			: '\f799',
+	'flickr'		: '\f16e',
+	'flipboard'		: '\f44d',
+	'forumbee'		: '\f211',
+	'foursquare'	: '\f180',
+	'freecodecamp'	: '\f2c5',
+	'gitlab'		: '\f296',
+	'google'		: '\f1a0',
+	'hackerrank'	: '\f5f7',
+	'linkedin'		: '\f08c',
+	'microsoft'		: '\f3ca',
+	'patreon'		: '\f3d9',
+	'paypal'		: '\f1ed',
+	'pinterest'		: '\f0d2',
+	'playstation'	: '\f3df',
+	'reddit'		: '\f1a1',
+	'shopify'		: '\e057',
+	'skype'			: '\f17e',
+	'snapchat'		: '\f2ab',
+	'soundcloud'	: '\f1be',
+	'spotify'		: '\f1bc',
+	'stackoverflow'	: '\f16c',
+	'steam'			: '\f1b6',
+	'teamspeak'		: '\f4f9',
+	'telegram'		: '\f2c6',
+	'tumblr'		: '\f173',
+	'tripadvisor'	: '\f262',
+	'twitch'		: '\f1e8',
+	'uber' 			: '\f402',
+	'viber'			: '\f409',
+	'vk'			: '\f189',
+	'wordpress'		: '\f19a',
+	'xbox'			: '\f412',
+	'yahoo'			: '\f19e'
+);
+
+@each $website,$icon in $social {
+
+	&[href*="#{$website}"]:before { content:"#{$icon}";}
+}
+
+&[href*='mail']:before { content:"\f0e0";font-family:"Font Awesome 5 Free";}
