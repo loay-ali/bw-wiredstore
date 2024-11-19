@@ -226,14 +226,67 @@ input {
 
 	min-width:48px;
 	min-height:48px;
-    padding:8px 16px;
-    border:1px solid #CCC;
-    margin:5px;
 
-    &:focus {outline:2px solid #AAA;}
+    padding:8px 16px;
+	margin:5px;
+
+    border:1px solid var(--bw-secondary-color,#DDD);
+	border-radius: var(--bw-border-radius,0);
+
+    &:focus {
+		border-color:var(--bw-foreground-color,#000);
+	}
 	
 	&:invalid,
-	&.invalid { border-color:#dc3545;box-shadow:0 0 10px #dc3545;}
+	&.invalid {
+		border-color:#dc3545;
+		box-shadow:0 0 10px #dc3545
+	}
+}
+
+//Special Input Element
+.bw-field {
+
+	display:inline-grid;
+	grid-template-areas: "LABEL LABEL" "ICON INPUT";
+
+	input {
+
+		grid-area: INPUT;
+
+		margin:0;
+	}
+
+	i {
+
+		box-sizing: content-box;
+
+		grid-area: ICON;
+
+		display: var(--bw-enable-input-icon,flex);
+		justify-content:center;
+		align-items:center;
+
+		width:40px;
+
+		padding-inline-end:25px;
+		margin-inline-end:-25px;
+
+		border-radius: var(--bw-border-radius,0);
+
+		background: var(--bw-secondary-color,#DDD);
+		color: var(--bw-foreground-color,#000);
+	}
+
+	label {
+		margin-bottom:5px;
+
+		grid-area: LABEL;
+
+		text-indent: 5px;
+
+		display: var(--bw-enable-input-label,initial);
+	}
 }
 
 //Table
@@ -303,8 +356,6 @@ table {
 			padding:12.5px 0;
 			text-decoration:none;
 			font-size:0px;
-		
-			@import 'assets/css/social';
 		}
     }
 }

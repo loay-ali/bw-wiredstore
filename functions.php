@@ -20,9 +20,23 @@ function bw_include_theme_scripts () {
 	$js_dir = get_template_directory_uri() . '/assets/js/';
 	$css_dir = get_template_directory_uri() . '/assets/css/';
 
-	//Font Awesome Library.
-	wp_enqueue_style("fontawesome",get_template_directory_uri() . "/assets/fonts/fontawesome/css/all.min.css",array(),'1.0.0');
-	
+	//Import Icon Family Styling
+	$bw_icon_lib = get_theme_mod('bw-icons-library','fai');
+	switch( $bw_icon_lib ) {
+		case 'li':
+		case 'bi':
+		case 'fai':
+			wp_enqueue_style('icons',$css_dir .'icons/'. $bw_icon_lib .'.css');
+		break;
+
+		default:
+
+			wp_enqueue_style('icons',$css_dir .'icons/fai.css');
+		break;
+	}
+
+	//Prevent Anyone From Loading any Icons Library
+
 	//Main Stylesheet.
 	wp_enqueue_style("style",get_stylesheet_uri('style.css'));
 
@@ -155,6 +169,9 @@ function bw_apply_style () {
 			echo '--bw-foreground-color:'. get_theme_mod('bw_color_'. get_theme_mod('bw_foreground_color',''),'#000') .';';
 			echo '--bw-primary-color:'. get_theme_mod('bw_color_'. get_theme_mod('bw_primary_color',''),'#FFF') .';';
 			echo '--bw-secondary-color:'. get_theme_mod('bw_color_'. get_theme_mod('bw_secondary_color',''),'#DDD') .';';
+
+			echo '--bw-enable-input-label:'. (rest_sanitize_boolean(get_theme_mod('bw-input-use-label',true)) == true ? 'initial':'none') .';';
+			echo '--bw-enable-input-icon:'. (rest_sanitize_boolean(get_theme_mod('bw-input-use-icon',true)) == true ? 'flex':'none') .';';
 			
 			echo '}';
 
@@ -166,7 +183,7 @@ function bw_apply_style () {
 		}
 
 		//Font.
-		echo "*:not(.fas,.fa,.fab,.far,#wpadminbar *,.ab-icon) {";
+		echo "*:not(.fas,.fa,.fab,.far,#wpadminbar *,.ab-icon,.bwi) {";
 		
 			$fontName = bw_get_font_name();
 		
@@ -367,11 +384,21 @@ add_action("admin_enqueue_scripts",function(){
 //Customize API.
 add_action("customize_register",function() {
 	
+	global $wp_customize;
+	
 	$prefix = 'bw_';
+	
+	//Setup Customize Panel For The Theme
+	$wp_customize->add_panel(
+	'bw-theme-panel',
+	array(
+		'title' => __('Theme Settings','bw')
+	));
 	
 	get_template_part("inc/customize/header");
 	get_template_part("inc/customize/colors");
 	get_template_part("inc/customize/border-radius");
+	get_template_part("inc/customize/inputs");
 	get_template_part("inc/customize/background-image");
 	get_template_part("inc/customize/widgets-default");
 	get_template_part("inc/customize/footer");

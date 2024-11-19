@@ -1,32 +1,61 @@
-.bwi::before { font-family: "boostrapicons";font-weight:bolder;}
+@font-face {
+	font-display: block;
+	font-family: "bootstrapicons";
+	src: url("../../fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6") format("woff2"),
+  url("../../fonts/bootstrap-icons.woff?dd67030699838ea613ee6dbda90effa6") format("woff");
+  }
 
-.bwi-cart { content: "\f242";}
-.bwi-search { content: "\f52A";}
-.bwi-cog { content: "\f56b";}
-.bwi-tag { content: "\f5b0";}
-.bwi-repeat { content: "\f130";}
-.bwi-phone { content: "\f5c1";}
-.bwi-link { content: "\f471";}
-.bwi-heart { content: "\f59d";}
-.bwi-star { content: "\f588";}
-.bwi-info { content: "\f434";}
-.bwi-gift { content: "\f3eb";}
-.bwi-eye { content: "\f341";}
-.bwi-eye-slash { content: "\f340";}
-.bwi-filter { content: "\f3ca";}
-.bwi-logout { content: "\f308";}
-.bwi-download { content: "\f30a"}
-.bwi-pen { content: "\f4c8"}
-.bwi-cross { content: "\f62a"}
-.bwi-check { content: "\f26e"}
-.bwi-check-circle { content: "\f26b"}
-.bwi-clock { content: "\f293"}
-.bwi-at { content: "\f152"}
-.bwi-arrow-left { content: "\f12f"}
-.bwi-arrow-top { content: "\f148"}
-.bwi-arrow-right { content: "\f138"}
-.bwi-arrow-bottom { content: "\f128"}
-.bwi-warning { content: "\f33b"}
-.bwi-menu-bars { content: "\f479"}
-.bwi-loading { content: "\f80d"}
-.bwi-user { content: "\f4e1"}
+.bwi::before,.bwi-social::before { font-family: "bootstrapicons";font-style: normal;}
+
+.bwi-cart::before { content: "\f242";}
+.bwi-search::before { content: "\f52A";}
+.bwi-cog::before { content: "\f56b";}
+.bwi-tag::before { content: "\f5b0";}
+.bwi-repeat::before { content: "\f130";}
+.bwi-phone::before { content: "\f5c1";}
+.bwi-link::before { content: "\f471";}
+.bwi-heart::before { content: "\f59d";}
+.bwi-star::before { content: "\f588";}
+.bwi-info::before { content: "\f434";}
+.bwi-gift::before { content: "\f3eb";}
+.bwi-eye::before { content: "\f341";}
+.bwi-eye-slash::before { content: "\f340";}
+.bwi-filter::before { content: "\f3ca";}
+.bwi-logout::before { content: "\f308";}
+.bwi-download::before { content: "\f30a"}
+.bwi-pen::before { content: "\f4c8"}
+.bwi-cross::before { content: "\f62a"}
+.bwi-check::before { content: "\f26e"}
+.bwi-check-circle::before { content: "\f26b"}
+.bwi-clock::before { content: "\f293"}
+.bwi-at::before { content: "\f152"}
+.bwi-arrow-left::before { content: "\f12f"}
+.bwi-arrow-top::before { content: "\f148"}
+.bwi-arrow-right::before { content: "\f138"}
+.bwi-arrow-bottom::before { content: "\f128"}
+.bwi-warning::before { content: "\f33b"}
+.bwi-menu-bars::before { content: "\f479"}
+.bwi-loading::before { content: "\f80d"}
+.bwi-user::before { content: "\f4e1"}
+.bwi-list::before { content: "\f479"}
+.bwi-calendar::before { content: "\f1f6"}
+
+/* Social */
+.bwi-facebook::before { content: "\f344";}
+.bwi-twitter::before,.bwi-social-x::before { content: "\f5ef";}
+.bwi-linkedin::before { content: "\f472";}
+.bwi-instagram::before { content: "\f437";}
+.bwi-whatsapp::before { content: "\f618";}
+.bwi-pinterest::before { content: "\f663";}
+.bwi-youtube::before { content: "\f62b";}
+.bwi-telegram::before { content: "\f5b3";}
+.bwi-github::before { content: "\f3ed";}
+.bwi-email::before { content: "\f609";}
+.bwi-stackoverflow::before { content: "\f667";}
+.bwi-dribbble::before { content: "\f65f";}
+.bwi-behance::before { content: "\f65c";}
+.bwi-skype::before { content: "\f656";}
+.bwi-google::before { content: "\f3f0";}
+.bwi-vimeo::before { content: "\f66a";}
+.bwi-amazon::before { content: "\f68d";}
+.bwi-apple::before { content: "\f65b";}

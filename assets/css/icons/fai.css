@@ -1,32 +1,61 @@
-.bwi::before { font-family: "fontawesome";font-weight:bolder;}
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../../fonts/fontawesome-webfont.eot?v=4.7.0');
+	src: url('../../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../../sfonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+	font-style: normal;
+  }
 
-.bwi-cart { content: "\f07a";}
-.bwi-search { content: "\f002";}
-.bwi-cog { content: "\f013";}
-.bwi-tag { content: "\f02b";}
-.bwi-repeat { content: "\f01e";}
-.bwi-phone { content: "\f095";}
-.bwi-link { content: "\f0c1";}
-.bwi-heart { content: "\f004";}
-.bwi-star { content: "\f005";}
-.bwi-info { content: "\f129";}
-.bwi-gift { content: "\f06b";}
-.bwi-eye { content: "\f06e";}
-.bwi-eye-slash { content: "\f070";}
-.bwi-filter { content: "\f0b0";}
-.bwi-logout { content: "\f08b";}
-.bwi-download { content: "\f019"}
-.bwi-pen { content: "\f040"}
-.bwi-cross { content: "\f00d"}
-.bwi-check { content: "\f00c"}
-.bwi-check-circle { content: "\f058"}
-.bwi-clock { content: "\f017"}
-.bwi-at { content: "\f1fa"}
-.bwi-arrow-left { content: "\f060"}
-.bwi-arrow-top { content: "\f062"}
-.bwi-arrow-right { content: "\f061"}
-.bwi-arrow-bottom { content: "\f063"}
-.bwi-warning { content: "\f071"}
-.bwi-menu-bars { content: "\f0c9"}
-.bwi-loading { content: "\f110"}
-.bwi-user { content: "\f007"}
+.bwi::before,.bwi-social::before { font-family: "FontAwesome";font-style: normal;}
+
+.bwi-cart::before  { content: "\f07a";}
+.bwi-search::before  { content: "\f002";}
+.bwi-cog::before  { content: "\f013";}
+.bwi-tag::before  { content: "\f02b";}
+.bwi-repeat::before  { content: "\f01e";}
+.bwi-phone::before  { content: "\f095";}
+.bwi-link::before  { content: "\f0c1";}
+.bwi-heart::before  { content: "\f004";}
+.bwi-star::before  { content: "\f005";}
+.bwi-info::before  { content: "\f129";}
+.bwi-gift::before  { content: "\f06b";}
+.bwi-eye::before  { content: "\f06e";}
+.bwi-eye-slash::before  { content: "\f070";}
+.bwi-filter::before  { content: "\f0b0";}
+.bwi-logout::before { content: "\f08b";}
+.bwi-download::before  { content: "\f019"}
+.bwi-pen::before { content: "\f040"}
+.bwi-cross::before { content: "\f00d"}
+.bwi-check::before { content: "\f00c"}
+.bwi-check-circle::before { content: "\f058"}
+.bwi-clock::before { content: "\f017"}
+.bwi-at::before { content: "\f1fa"}
+.bwi-arrow-left::before { content: "\f060"}
+.bwi-arrow-top::before { content: "\f062"}
+.bwi-arrow-right::before { content: "\f061"}
+.bwi-arrow-bottom::before { content: "\f063"}
+.bwi-warning::before { content: "\f071"}
+.bwi-menu-bars::before { content: "\f0c9"}
+.bwi-loading::before { content: "\f110"}
+.bwi-user::before { content: "\f007"}
+.bwi-list::before { content: "\f03a"}
+.bwi-calendar::before { content: "\f073"}
+
+/* Social */
+.bwi-facebook::before { content: "\f09a";}
+.bwi-twitter::before,.bwi-social-x::before { content: "\f099";}
+.bwi-linkedin::before { content: "\f0e1";}
+.bwi-instagram::before { content: "\f16d";}
+.bwi-whatsapp::before { content: "\f232";}
+.bwi-pinterest::before { content: "\f0d2";}
+.bwi-youtube::before { content: "\f167";}
+.bwi-telegram::before { content: "\f2c6";}
+.bwi-github::before { content: "\f09b";}
+.bwi-email::before { content: "\f0e0";}
+.bwi-stackoverflow::before { content: "\f16c";}
+.bwi-dribbble::before { content: "\f17d";}
+.bwi-behance::before { content: "\f1b4";}
+.bwi-skype::before { content: "\f17e";}
+.bwi-google::before { content: "\f1a0";}
+.bwi-vimeo::before { content: "\f27d";}
+.bwi-amazon::before { content: "\f270";}
+.bwi-apple::before { content: "\f179";}

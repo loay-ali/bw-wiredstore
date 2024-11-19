@@ -66,7 +66,7 @@
 				class = 'phone-only requireJs'
 				id = 'open-menu' 
 				title = '<?php _e("Open Menu",'bw');?>'>
-				<i class = 'fas fa-bars fa-2x'></i>
+				<i class = 'bwi bwi-menu-bars'></i>
 			</button>
 		
 		</header>
@@ -77,7 +77,7 @@
 					class = 'phone-only' 
 					id = 'close-menu' 
 					title = '<?php _e("Close Menu",'bw');?>'>
-					<i class = 'fas fa-times fa-2x'></i>
+					<i class = 'bwi bwi-cross'></i>
 				</button>
 				<?php
 					if(has_nav_menu("primary")) {

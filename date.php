@@ -8,7 +8,7 @@ get_header(); ?>
 
 <header>
 	<h1>
-		<i class = 'fas fa-calendar-alt'></i> - <time datetime = '<?php echo get_the_date('Y-m-d H:i:s');?>'><?php echo get_the_date(); ?></time>
+		<i class = 'bwi bwi-calendar'></i> - <time datetime = '<?php echo get_the_date('Y-m-d H:i:s');?>'><?php echo get_the_date(); ?></time>
 	</h1>
 </header>
 <hr />

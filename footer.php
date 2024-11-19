@@ -16,7 +16,7 @@
 				<button
 					class = 'bw-close-window'
 					type = 'button'>
-					<i class = 'fas fa-times'></i>
+					<i class = 'bwi bwi-cross'></i>
 				</button>
 			</header>
 			

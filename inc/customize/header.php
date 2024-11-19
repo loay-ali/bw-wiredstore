@@ -20,7 +20,9 @@ $background_sizes = array(
 $wp_customize->add_section("header-section",array(
 
 	'title' 		=>__("Header",'bw'),
-	'description' 	=>__("Header Section Styling Customization",'bw')));
+	'description' 	=>__("Header Section Styling Customization",'bw'),
+	'panel'			=> 'bw-theme-panel'
+));
 
 //Title.
 $wp_customize->add_setting("header-title",array('sanitize_callback'=>'esc_html'));

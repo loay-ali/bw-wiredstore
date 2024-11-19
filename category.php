@@ -8,7 +8,7 @@ get_header(); ?>
 
 <header>
 	<h1>
-		<i class = 'fas fa-list-alt'></i> <?php _e("Category",'bw');?>
+		<i class = 'bwi bwi-list'></i> <?php _e("Category",'bw');?>
 	</h1>
 	<h2>
 		<?php single_cat_title(); ?>

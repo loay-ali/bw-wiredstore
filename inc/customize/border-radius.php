@@ -5,7 +5,8 @@ global $wp_customize;
 //Section
 $wp_customize->add_section('bw_border_radius',array(
 	'title' => __("Border Radius",'bw'),
-	'description' => __("Manage Rounded Angels For Elements In The Website",'bw')
+	'description' => __("Manage Rounded Angels For Elements In The Website",'bw'),
+	'panel' => 'bw-theme-panel'
 ));
 
 //[edit]

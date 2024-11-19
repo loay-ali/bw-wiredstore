@@ -7,7 +7,8 @@ global $wp_customize;
 
 $wp_customize->add_section('bw-loading-screen-section',array(
     'title' => __("Loading Screen",'bw'),
-    'description' => __("Manage Your Loading Splash Screen",'bw')
+    'description' => __("Manage Your Loading Splash Screen",'bw'),
+	'panel' => 'bw-theme-panel'
 ));
 
 //Enable / Disable

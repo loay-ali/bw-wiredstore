@@ -21,7 +21,9 @@ $background_sizes = array(
 
 $wp_customize->add_section("footer-section",array(
 	"title" => __("Footer"),
-	"description" => __('Footer Section Styling Customization','bw')));
+	"description" => __('Footer Section Styling Customization','bw'),
+	"panel" => 'bw-theme-panel'
+));
 
 //Background Color
 $wp_customize->add_setting("footer-bg-color",array('default' => "#fff",'sanitize_callback' => 'sanitize_hex_color'));

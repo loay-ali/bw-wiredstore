@@ -9,7 +9,7 @@ get_header(); ?>
 
 <header>
 	<h1>
-		<i class = 'fas fa-tag'></i> 
+		<i class = 'bwi bwi-tag'></i> 
 		<?php _e("Tag",'bw');?>
 	</h1>
 	<h2>

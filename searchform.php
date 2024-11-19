@@ -1,7 +1,7 @@
 <form id="searchform" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
     <input type="text" class="search-field" name="s" placeholder="<?php _e("Search",'bw'); ?>" value="<?php echo get_search_query(); ?>">
     <button type="submit" title = '<?php _e("Search",'bw');?>'>
-		<i class = 'fas fa-search'></i>
+		<i class = 'bwi bwi-search'></i>
 	</button>
 	
 	<?php if(is_search()): ?>

@@ -6,7 +6,6 @@ global $wp_customize;
 
 //Panel.
 $wp_customize->add_panel("bw-google-fonts-panel",array(
-
 	'title' 		=> __("Fonts",'bw'),
 	'description'	=> __("Modify Your Fonts Using Google Fonts",'bw')
 ));
