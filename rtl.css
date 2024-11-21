@@ -11,14 +11,8 @@
   direction: ltr;
 }
 
-.slideshow #slide-move-right {
-  left: 10px;
-}
-
-.slideshow #slide-move-left {
-  left: calc(100% - 58px) !important;
-}
-
+/* .slideshow #slide-move-right { left:10px}
+.slideshow #slide-move-left { left:calc(100% - 58px) !important;} */
 /* Menu Buttons ( Phone View ) */
 #main-header button#open-menu,
 #main-header button#close-menu {
@@ -30,11 +24,8 @@
   right: auto;
 }
 
-/* Include Mailchimp Styling */
-/* Include Jetpack Styling */
-/* Include Woocommerce Styling */
 .woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
   right: auto;
 }
 
-/*# sourceMappingURL=style-rtl.css.map */
+/*# sourceMappingURL=rtl.css.map */

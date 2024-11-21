@@ -88,7 +88,7 @@ class BW_Wired_Store {
 
 	function admin_scripts() {
 		wp_enqueue_media();
-		wp_enqueue_script("media_uploader",get_template_directory_uri() ."assets/js/media_uploader.js",array('jquery','wp-color-picker'),false,true);
+		wp_enqueue_script("media_uploader",get_template_directory_uri() ."/assets/js/media_uploader.js",array('jquery','wp-color-picker'),false,true);
 
 		wp_enqueue_style('wp-color-picker');
 
@@ -391,6 +391,10 @@ class BW_Wired_Store {
 
 		//Main Stylesheet.
 		wp_enqueue_style("style",get_stylesheet_uri('style.css'));
+
+		//RTL
+		if( is_rtl() )
+			wp_enqueue_style('rtl-style',get_template_directory_uri(  ) .'rtl.css');
 
 		//Smart Watch Styling.
 		wp_enqueue_style('bw-smartwatch-style',$css_dir .'smart-watch.css',array(),false,'(max-width:250px)');

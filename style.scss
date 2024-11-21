@@ -882,7 +882,7 @@ button.grid-numbers-btn {
 				width:100%;
 				height:100%;
 				background:#030a0f55;
-				color:#fff;
+				color:var(--bw-foreground-color);
 				text-align:center;
 				padding:25px;
 				position:absolute;
@@ -921,8 +921,9 @@ button.grid-numbers-btn {
 	
 		position:absolute;
 		top:50%;
-		background:#22222299;
-		color:#fff;
+		background:var(--bw-black-color);
+		color:var(--bw-foreground-color);
+		opacity:0.75;
 		border:none;
 		font-size:30px;
 	
@@ -939,12 +940,18 @@ button.grid-numbers-btn {
 		display:flex;
 		justify-content:center;
 		
-		button { margin:0 10px;}
+		button {
+			
+			margin:0 10px;
+		
+			background:var(--bw-foreground-color);
+			color:var(--bw-primary-color);
+		}
 		
 		#active {
 		
-			background:#030a0f;
-			color:#fff;
+			background:var(--bw-primary-color);
+			color:var(--bw-foreground-color);
 		}
 	}
 	
@@ -1231,11 +1238,6 @@ body[noJs] .tabs-widget .tab-content div {
 		padding:0 calc((100vw - 1800px) / 2);
 	
 		#header-widgets { flex-wrap:nowrap;}
-	}
-	
-	#main-slide > div {
-	
-		width:1800px !important;
 	}
 	
 	#header-menu {

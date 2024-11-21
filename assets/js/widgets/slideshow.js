@@ -49,29 +49,29 @@
 		let stopping = false;
 		$(ele).find("#pause-slide").click(function(){
 			
-			if($(this).find("i").attr("class") == "fas fa-pause") {//Pause The Slide
+			if($(this).find("i").attr("class") == "bwi bwi-pause") {//Pause The Slide
 				
 				$(this).siblings("#progress-bar").stop();
 				slideCurrWidth = $(this).siblings("#progress-bar").css("width");
 				
 				stopping = true;
 				
-				$(this).find("i").attr("class",'fas fa-play');
+				$(this).find("i").attr("class",'bwi bwi-play');
 			}else {//Resume The Slide
 				
-				let timeToReach = (slideCurrWidth.split("px")[0] / window.outerWidth)*100;
+				let timeToReach = (slideCurrWidth.toString().split("px")[0] / window.outerWidth)*100;
 				timeToReach = (100 - timeToReach) * 75;
 				
 				stopping = false;
 				
 				$(this).siblings("#progress-bar")
-				.css('width',slideCurrWidth.split("px")[0])
+				.css('width',slideCurrWidth.toString().split("px")[0])
 				.animate({'width':'100%'},timeToReach,'linear',function(){
 					
 					change_slide(curr_slide + 1,ele);
 				});
 				
-				$(this).find("i").attr("class",'fas fa-pause');			
+				$(this).find("i").attr("class",'bwi bwi-pause');			
 			}
 		});
 		

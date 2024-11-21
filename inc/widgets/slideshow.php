@@ -235,20 +235,19 @@ class se_slideshow_widget extends WP_Widget {
 				</button>
 			<?php endif;?>
 			
-			<?php $lang_dir = is_rtl() ? array('right','left'):array('left','right');?>
 			<!-- Right & Left Arrows -->
 			<button
 				id = 'slide-move-left' 
 				class = 'requireJs screen-only' 
 				title = '<?php _e("Previous Slide",'bw');?>'>
-				<i class = 'bwi bwi-arrow-<?php echo $lang_dir[0];?>'></i>
+				<i class = 'bwi bwi-arrow-left'></i>
 			</button>
 		
 			<button 
 				id = 'slide-move-right' 
 				class = 'requireJs screen-only'
 				title = '<?php _e("Next Slide",'bw');?>'>
-				<i class = 'bwi bwi-arrow-<?php echo $lang_dir[1];?>'></i>
+				<i class = 'bwi bwi-arrow-right'></i>
 			</button>
 
 			<!-- Slide Number Buttons -->

@@ -49,7 +49,7 @@ class BW_Woocommerce {
 	
 	function register_scripts() {
 		
-		wp_enqueue_script('wc-plugin',get_template_directory_uri() ."/js/woocommerce/wc-plugin-min.js",array('jquery'),false,true);
+		wp_enqueue_script('wc-plugin',get_template_directory_uri() ."/assets/js/woocommerce/wc-plugin-min.js",array('jquery'),false,true);
 	}
 	
 	function cart_element() {
