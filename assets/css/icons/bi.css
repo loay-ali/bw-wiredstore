@@ -1,11 +1,16 @@
 @font-face {
 	font-display: block;
-	font-family: "bootstrapicons";
+	font-family: "bw-main-icon";
 	src: url("../../fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6") format("woff2"),
   url("../../fonts/bootstrap-icons.woff?dd67030699838ea613ee6dbda90effa6") format("woff");
   }
 
-.bwi::before,.bwi-social::before { font-family: "bootstrapicons";font-style: normal;}
+:root {
+	--bw-check-icon-unicode: "\f26b";
+	--bw-checkbox-disabled-icon-unicode: "\f28a";
+}
+
+.bwi::before,.bwi-social::before { font-family: "bw-main-icon";font-style: normal;}
 
 .bwi-cart::before { content: "\f242";}
 .bwi-search::before { content: "\f52A";}
@@ -39,6 +44,9 @@
 .bwi-user::before { content: "\f4e1"}
 .bwi-list::before { content: "\f479"}
 .bwi-calendar::before { content: "\f1f6"}
+
+.bwi-pause::before { content: "\f4c4"}
+.bwi-play::before { content: "\f4f5";}
 
 /* Social */
 .bwi-facebook::before { content: "\f344";}

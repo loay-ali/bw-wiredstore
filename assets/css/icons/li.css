@@ -1,5 +1,5 @@
 @font-face {
-	font-family: 'Linearicons';
+	font-family: 'bw-main-icon';
 	src:url('../../fonts/Linearicons-Free.eot?w118d');
 	src:url('../../fonts/Linearicons-Free.eot?#iefixw118d') format('embedded-opentype'),
 		url('../../fonts/Linearicons-Free.woff2?w118d') format('woff2'),
@@ -8,6 +8,11 @@
 		url('../../fonts/Linearicons-Free.svg?w118d#Linearicons-Free') format('svg');
 	font-weight: normal;
 	font-style: normal;
+}
+
+:root {
+	--bw-check-icon-unicode: "\e87f";
+	--bw-checkbox-disabled-icon-unicode: "\e882";
 }
 
 @font-face {
@@ -23,7 +28,7 @@
 	url("../../fonts/fa-brands-400.svg#fontawesome") format("svg"); }
   
 
-.bwi::before { font-family: "LinearIcons";font-style: normal;}
+.bwi::before { font-family: "bw-main-icon";font-style: normal;}
 .bwi-social::before { font-family: 'Font Awesome 5 Brands';font-style: normal;}
 
 .bwi-cart::before { content: "\e82e";}
@@ -58,6 +63,9 @@
 .bwi-user::before { content: "\e82a"}
 .bwi-list::before { content: "\e872"}
 .bwi-calendar::before { content: "\e836"}
+
+.bwi-pause::before { content: "⏸︎"}
+.bwi-play::before { content: "▶️"}
 
 /* Social */
 .bwi-facebook::before { content: "\f09a";}

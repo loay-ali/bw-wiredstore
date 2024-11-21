@@ -231,7 +231,7 @@ class se_slideshow_widget extends WP_Widget {
 			<?php if($slide_progress == true):?>
 				<!-- Pause Button -->
 				<button class = 'requireJs' id = 'pause-slide' title = '<?php _e("Pause Slideshow",'bw');?>'>
-					<i class = 'fas fa-pause'></i>
+					<i class = 'bwi bwi-pause'></i>
 				</button>
 			<?php endif;?>
 			
@@ -241,14 +241,14 @@ class se_slideshow_widget extends WP_Widget {
 				id = 'slide-move-left' 
 				class = 'requireJs screen-only' 
 				title = '<?php _e("Previous Slide",'bw');?>'>
-				<i class = 'fas fa-angle-<?php echo $lang_dir[0];?>'></i>
+				<i class = 'bwi bwi-arrow-<?php echo $lang_dir[0];?>'></i>
 			</button>
 		
 			<button 
 				id = 'slide-move-right' 
 				class = 'requireJs screen-only'
 				title = '<?php _e("Next Slide",'bw');?>'>
-				<i class = 'fas fa-angle-<?php echo $lang_dir[1];?>'></i>
+				<i class = 'bwi bwi-arrow-<?php echo $lang_dir[1];?>'></i>
 			</button>
 
 			<!-- Slide Number Buttons -->

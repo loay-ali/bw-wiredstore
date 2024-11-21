@@ -59,7 +59,7 @@
 			title = '<?php _e("Go To The Top Of The Page",'bw');?>' 
 			id = 'going-up' 
 			style = 'display:none;'>
-			<i class = 'fas fa-angle-up fa-2x'></i>
+			<i class = 'bwi bwi-arrow-top'></i>
 		</button>
 		
 		<footer id = "main-footer">

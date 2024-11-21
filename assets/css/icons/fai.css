@@ -1,11 +1,16 @@
 @font-face {
-	font-family: 'FontAwesome';
+	font-family: 'bw-main-icon';
 	src: url('../../fonts/fontawesome-webfont.eot?v=4.7.0');
 	src: url('../../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../../sfonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
 	font-style: normal;
   }
 
-.bwi::before,.bwi-social::before { font-family: "FontAwesome";font-style: normal;}
+:root {
+	--bw-check-icon-unicode: "\f058";
+	--bw-checkbox-disabled-icon-unicode: "\f10c";
+}
+
+.bwi::before,.bwi-social::before { font-family: "bw-main-icon";font-style: normal;}
 
 .bwi-cart::before  { content: "\f07a";}
 .bwi-search::before  { content: "\f002";}
@@ -39,6 +44,9 @@
 .bwi-user::before { content: "\f007"}
 .bwi-list::before { content: "\f03a"}
 .bwi-calendar::before { content: "\f073"}
+
+.bwi-pause::before { content: "\f04c";}
+.bwi-play::before { content: "\f04b"}
 
 /* Social */
 .bwi-facebook::before { content: "\f09a";}

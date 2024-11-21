@@ -569,7 +569,7 @@ class Grid_Section extends WP_Widget {
 					class = 'requireJs grid-move'
 					title = '<?php _e("Previous Grid Items",'bw');?>'>
 					
-					<i class = 'fas fa-angle-<?php echo $lang_dir[0];?> fa-2x'></i>
+					<i class = 'bwi bwi-arrow-<?php echo $lang_dir[0];?>'></i>
 				</button>
 						
 				<?php if( $grid_numbers == true ):?>
@@ -581,7 +581,7 @@ class Grid_Section extends WP_Widget {
 					class = 'requireJs grid-move'
 					title = '<?php _e("Next Grid Items",'bw');?>'>
 
-					<i class = 'fas fa-angle-<?php echo $lang_dir[1];?> fa-2x'></i>
+					<i class = 'bwi bw-arrow-<?php echo $lang_dir[1];?>'></i>
 				</button>
 				
 			<?php endif;?>

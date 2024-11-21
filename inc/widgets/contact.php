@@ -144,7 +144,7 @@ class BW_Contact_Info extends WP_Widget {
 						href = '<?php echo $i->url;?>' 
 						target = '_blank'
 						title = '<?php _e("Download The App On ". ($bwApp == 'google-play' ? 'Google Play':'App Store'),'bw');?>'>
-						<i class = 'fab fa-<?php echo $bwApp == 'app-store' ? 'apple':'google-play';?>'></i>
+						<i class = 'bwi-social bwi-<?php echo $bwApp == 'app-store' ? 'apple':'google-play';?>'></i>
 						<?php _e("Get It On",'bw'); ?>
 						<strong>
 							<?php echo str_replace('-',' ',ucfirst($bwApp)); ?>
