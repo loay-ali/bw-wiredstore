@@ -26,9 +26,24 @@ class BW_Wired_Store {
 
 		add_action( 'init',array($this,'disable_emojies'));
 
+		//Setup Wizard
+		add_action('admin_init',array($this,'setup_wizard'));
+
 		//Excerpt.
 		add_filter("excerpt_length",function($len) {return 20;});
 		add_filter("excerpt_more",function($more) {return "<u> ,".__("...Read More",'bw')."</u>";});
+	}
+
+	function setup_wizard() {
+
+		require_once __DIR__ .'/inc/class-setup-wizard.php';
+
+		if( BW_Setup_Wizard::check() == false )
+			return false;
+
+		$bw_setup_wizard = new BW_Setup_Wizard;
+
+		$bw_setup_wizard->entry_point();
 	}
 
 	/* Disable the emoji's */
