@@ -1,0 +1,181 @@
+/* Hide Everything in admin page */
+#adminmenumain,#wpadminbar,#wpbody-content .notice {
+	display:none;
+}
+
+#wpcontent,#wpadminbar,html.wp-toolbar {
+	margin:0;
+	padding:0;
+}
+
+/* Customizing */
+body {
+
+	padding: 100px 10%;
+}
+
+#bw-theme-identity,
+#bw-stages-header > a,
+#setup-wizard-content,
+footer {
+	padding:10px;
+}
+
+#bw-theme-identity,
+#bw-stages-header,
+footer {
+	display:flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#bw-theme-identity {
+
+	background:#BFBFBF;
+}
+
+#bw-stages-header {
+
+	background: #CFCFCF;
+
+	> a {
+
+		text-decoration: none;
+	
+		background: #DDD;
+		color: #030a0f;
+	
+		.active + & {
+			background: plum;
+			color: #000;
+		}
+
+		&.active {
+			background: purple;
+			color:#FFF;
+		}
+	}
+}
+
+/* Special Elements */
+.bwa-radio-imgs,
+.bwa-checkbox-imgs {
+
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+
+	> label {
+
+		text-align: center;
+
+		position:relative;
+		
+		width:150px;
+
+		margin:10px;
+
+		> span {
+		
+			text-align:center;
+		}
+
+		> img {
+
+			width:100%;
+
+			margin-top:10px;
+		}
+
+		> input {
+
+			border:none;
+			background:none;
+			outline:none;
+
+			position: absolute;
+			inset-inline-start: -7.5px;
+			top: -7.5px;
+			width: calc(100% + 15px);
+			height: calc(100% + 15px);
+			
+			border-radius: 10px;
+
+			&:checked {
+				border: 2px solid green !important;
+
+				&::before {
+
+					content: "\f15e";
+
+					color: #FFF;
+					background: green;
+				}
+			}
+
+			&::before {
+
+				content: "";
+
+				font-family: dashicons;
+				font-size:30px;
+
+				line-height: normal;
+				margin: 0;
+
+				position: absolute;
+				top: -15px;
+				left: -15px;
+				
+				width: 35px !important;
+				height: 35px !important;
+
+				display: flex;
+				align-content: center;
+				justify-content: center;
+			}
+
+			&:focus {
+				
+				outline:none;
+				box-shadow:none;
+			}
+		}
+	}
+}
+
+.bwa-checkbox-imgs {
+
+	label {
+		input {
+			border: 2px solid gray !important;
+
+			&::before {
+				background: gray;
+				color: #FFF;
+
+				content: "\f460";
+			}
+		}
+	}
+}
+
+/* Elements */
+.bwa-btn,
+.bwa-btn-primary {
+
+	padding:8px 16px;
+
+	border:none;
+
+	background: #CCC;
+
+	font-weight: bolder;
+
+	cursor:pointer;
+}
+
+.bwa-btn-primary {
+	background: palevioletred;
+	color: #000;
+}

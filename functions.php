@@ -5,6 +5,7 @@ class BW_Wired_Store {
 	function __construct() {
 
 		add_action('wp_enqueue_scripts',array($this,'scripts'));
+		add_action("admin_enqueue_scripts",array($this,'admin_scripts'));
 
 		add_action("wp_head",array($this,'apply_style'));
 
@@ -18,32 +19,52 @@ class BW_Wired_Store {
 
 		add_action("after_setup_theme",array($this,'plugins_addition_include'));
 
-		add_action("admin_enqueue_scripts",array($this,'admin_scripts'));
-
 		add_action("customize_register",array($this,'customize_api'));
 
 		add_action('init',array($this,'post_types'));
 
 		add_action( 'init',array($this,'disable_emojies'));
 
+		//Menu Pages
+		add_action('admin_menu',array($this,'admin_pages'));
+
 		//Setup Wizard
-		add_action('admin_init',array($this,'setup_wizard'));
+		add_action('admin_menu',array($this,'setup_wizard'));
 
 		//Excerpt.
 		add_filter("excerpt_length",function($len) {return 20;});
 		add_filter("excerpt_more",function($more) {return "<u> ,".__("...Read More",'bw')."</u>";});
 	}
 
+	function admin_pages() {
+
+		//Main Menu Page
+		add_menu_page(
+			__("Wired Store",'bw'), 
+			__("Wired Store",'bw'), 
+			'edit_posts', 
+			'bw-ws-menu', 
+			function() {}, 
+			'dashicons-store' );
+
+		//Setup Wizard
+		//-> Handled By The Class ( BW_Setup_Wizard ) -> setup_wizard()
+	}
+
 	function setup_wizard() {
 
 		require_once __DIR__ .'/inc/class-setup-wizard.php';
 
-		if( BW_Setup_Wizard::check() == false )
-			return false;
-
 		$bw_setup_wizard = new BW_Setup_Wizard;
 
-		$bw_setup_wizard->entry_point();
+		//Menu Page
+		add_submenu_page(
+			'',
+			__("Setup Wizard",'bw'),
+			__("Setup Wizard",'bw'),
+			'edit_users',
+			'bw-ws-setup-wizard',
+			array($bw_setup_wizard,'entry_point'));
 	}
 
 	/* Disable the emoji's */
@@ -102,6 +123,15 @@ class BW_Wired_Store {
 	}
 
 	function admin_scripts() {
+
+		$bw_screen = get_current_screen();
+
+		switch( $bw_screen->id ) {
+			case 'admin_page_bw-ws-setup-wizard':
+				wp_enqueue_style('bw-setup-wizard-styling',get_template_directory_uri(  ) .'/assets/css/setup-wizard.css');
+			break;
+		}
+
 		wp_enqueue_media();
 		wp_enqueue_script("media_uploader",get_template_directory_uri() ."/assets/js/media_uploader.js",array('jquery','wp-color-picker'),false,true);
 
@@ -462,6 +492,10 @@ class BW_Wired_Store {
 }
 
 /* Public Functions */
+//Get Theme Logo
+function bw_get_theme_logo() {
+	return get_template_directory_uri() . '/assets/imgs/theme-logo.png';
+}
 
 //Loading Screen
 function bw_loading_screen() {
