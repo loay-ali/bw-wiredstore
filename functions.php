@@ -120,6 +120,7 @@ class BW_Wired_Store {
 		get_template_part("inc/customize/icons-library");
 		get_template_part("inc/customize/loading-screen");
 		get_template_part("inc/customize/menu");
+		get_template_part("inc/customize/404-template");
 	}
 
 	function admin_scripts() {
