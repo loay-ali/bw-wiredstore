@@ -33,8 +33,34 @@ class BW_Woocommerce {
 	
 		//Product OnSale Saving Rate.
 		add_action('woocommerce_single_product_summary',array($this,'saving_rate'));
+
+		//Q & A Front End.
+		add_filter('woocommerce_product_tabs', array($this, 'qa_tab'));
+
+		if( is_admin() ) {
+			require_once __DIR__ .'/admin.php';
+		}
 	}
 	
+    function qa_frontend()
+    {
+
+        require_once __DIR__ . '/../../templates/qa.php';
+    }
+
+    function qa_tab($tabs)
+    {
+
+        $tabs['question-and-answers'] = array(
+
+            'title'        => 'الأسئلة الشائعة',
+            'priority'    => 900,
+            'callback'    => array($this, 'qa_frontend')
+        );
+
+        return $tabs;
+    }
+
 	function saving_rate() {
 		
 		global $product;

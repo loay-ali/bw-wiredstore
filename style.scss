@@ -264,6 +264,52 @@ input {
 	}
 }
 
+.bw-toggle-section {
+
+	position: relative;
+	overflow: hidden;
+  
+	> header {
+		color: #000;
+		border: 1px solid #CCC;
+		padding: 10px 5px;
+		cursor: pointer;
+		z-index: 1;
+		position: relative;
+		background: #FFF;
+
+		i {
+
+			float:inline-end;
+
+			margin:0 5px;
+		}
+	}
+
+	> section {
+
+		padding: 10px;
+		transition: top 0.25s ease-in-out;
+		position: relative;
+		display: none;
+	}
+}
+  body.nojs .bw-toggle-section:hover > header:after {
+	content: "\e939";
+  }
+  
+  body.nojs .bw-toggle-section:hover > section {
+	display: block;
+  }
+  
+  .bw-toggle-section.active > header i {
+	transform:rotate(180deg);
+  }
+
+.bw-toggle-section.active > section {
+display: block;
+}
+
 //Special Input Element
 .bw-field {
 
