@@ -80,14 +80,14 @@ class BW_Backorder_Requests_Form_Table extends WP_List_Table {
 
 			case 'type':
 				
-				$tmpData = [0 => 'عبر الإيميل',1 => 'عبر الهاتف',2 => 'عبر الواتس اب'];
+				$tmpData = ['email' => 'عبر الإيميل','phone' => 'عبر الهاتف'];
 				
-				return (array_key_exists($item->type,$tmpData) ? $tmpData[$item->type]:'غير محدد');
+				return (array_key_exists($item->customer_type,$tmpData) ? $tmpData[$item->customer_type]:'غير محدد');
 			break;
 
             case 'customer':
 
-                return $item->customer_email == '' ? $item->customer_phone:$item->customer_email;
+                return $item->customer_data;
             break;
 
             case 'sent':
@@ -110,7 +110,7 @@ class BW_Backorder_Requests_Form_Table extends WP_List_Table {
             break;
 
             case 'switch':
-                return ($item->customer_phone != '' && $item->status == 1 && $item->type == 1) ? '<a class = "button" href = "?bw-customer-contact-only='. (empty($_GET['bw-customer-contact-only']) ? '':htmlspecialchars($_GET['bw-customer-contact-only'])) .'&s='. (empty($_GET['s']) ? '':htmlspecialchars($_GET['s'])) .'&bw-status-only='. (empty($_GET['bw-status-only']) ? '':htmlspecialchars($_GET['bw-status-only'])) .'&bw-product-stock-only='. (empty($_GET['bw-product-stock-only']) ? '':htmlspecialchars($_GET['bw-product-stock-only'])) .'&bw-request-date='. (empty($_GET['bw-request-date']) ? '':htmlspecialchars($_GET['bw-request-date'])) .'&bw-switch-backorder='. $item->id .'">تم الأرسال</a>':'';
+                return ($item->customer_type == 'phone' && $item->customer_data != '' && $item->status == 0) ? '<a class = "button" href = "?bw-customer-contact-only='. (empty($_GET['bw-customer-contact-only']) ? '':htmlspecialchars($_GET['bw-customer-contact-only'])) .'&s='. (empty($_GET['s']) ? '':htmlspecialchars($_GET['s'])) .'&bw-status-only='. (empty($_GET['bw-status-only']) ? '':htmlspecialchars($_GET['bw-status-only'])) .'&bw-product-stock-only='. (empty($_GET['bw-product-stock-only']) ? '':htmlspecialchars($_GET['bw-product-stock-only'])) .'&bw-request-date='. (empty($_GET['bw-request-date']) ? '':htmlspecialchars($_GET['bw-request-date'])) .'&bw-switch-backorder='. $item->id .'">تم الأرسال</a>':'';
             break;
         }
     }
@@ -142,10 +142,10 @@ class BW_Backorder_Requests_Form_Table extends WP_List_Table {
         $this->process_bulk_action();
 
         //Search.
-        $phone_only = !empty($_GET['order']) && is_string($_GET['order']) && $_GET['order'] == 'phone-only' ? "bo.customer_phone != '' AND":'';
+        $phone_only = !empty($_GET['order']) && is_string($_GET['order']) && $_GET['order'] == 'phone-only' ? "bo.customer_type = 'phone' AND":'';
 
         $this->s = empty($_GET['s']) ? '':htmlspecialchars($_GET['s']);
-        $search_query = $this->s != '' ? sprintf('(bo.customer_phone LIKE "%1$s" OR bo.customer_email LIKE "%1$s")','%'. $this->s .'%'):' 1 = 1 ';
+        $search_query = $this->s != '' ? sprintf('(bo.customer_data LIKE "%s")','%'. $this->s .'%'):' 1 = 1 ';
 
         $dedicated_query = !empty($this->dedicated_inputs['status']) ? sprintf(" AND (bo.status = %d) ",$this->dedicated_inputs['status']):'AND (1 = 1)';
         $dedicated_query .= !empty($this->dedicated_inputs['stock']) ? sprintf(" AND (pm.meta_value = '%s') ",$this->dedicated_inputs['stock']):'AND (1 = 1)';
@@ -159,7 +159,7 @@ class BW_Backorder_Requests_Form_Table extends WP_List_Table {
 
         $query = sprintf(
             "SELECT bo.*,pr.post_title,pm.meta_value as stock FROM
-                {$wpdb->prefix}bw_backorders bo
+                {$wpdb->prefix}bw_notify_me bo
                 LEFT JOIN {$wpdb->posts} pr ON(pr.ID=bo.product_id)
                 LEFT JOIN {$wpdb->postmeta} pm ON(pm.post_id = pr.ID AND pm.meta_key = '_stock_status')
                 WHERE %s %s %s

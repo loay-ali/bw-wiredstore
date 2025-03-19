@@ -232,4 +232,10 @@
 		navWalker();
 	};
 
+	//Toggle ( Toggable Element ) - Instead Of <details> -.
+	$('body').on('click','.bw-toggle-section > header',({currentTarget}) => {
+
+		$(currentTarget).parent().toggleClass('active');
+	});
+
 })(jQuery);
