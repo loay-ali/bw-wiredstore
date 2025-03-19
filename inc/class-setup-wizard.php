@@ -2,6 +2,19 @@
 
 class BW_Setup_Wizard {
     public $settings;
+    public static $tables = array(
+
+        'bw_notify_me' => array(
+            'id'                => 'INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT',
+            'customer_id'       => 'BIGINT(20) NOT NULL',
+            'cutomer_data'      => 'VARCHAR(255) NOT NULL',
+            'customer_type'     => 'ENUM("email","phone") DEFAULT "email"',
+            'release_date'      => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+            'product_id'        => 'BIGINT(20) NOT NULL',
+            'status'            => 'TINYINT(1) DEFAULT 1',
+            'send_date'         => 'TIMESTAMP'
+        )
+    );
 
     function __construct() {
 
@@ -91,6 +104,22 @@ class BW_Setup_Wizard {
         &&  strlen($_GET['stage']) <= 30 );
     }
 
+    public function insert_tables() {
+
+        global $wpdb;
+
+        foreach( self::$tables as $table_slug => $rows ) {
+
+            $wpdb->query(
+                sprintf(
+                    "CREATE TABLE IF NOT EXISTS %s (%s)",
+                    $table_slug,
+                    implode(',',$rows)
+                )
+            );
+        }
+    }
+
     public function prev_phase($stage) {
 
         if( $this->settings[$stage] != reset($this->settings[$stage]) ) {//Not First Phase
@@ -105,6 +134,9 @@ class BW_Setup_Wizard {
     public function next_phase($stage) {
 
         if( $this->settings[$stage] == end($this->settings[$stage]) ) {//The Final Phase
+
+            //Table Insertion
+            $this->insert_tables();
 
             wp_safe_redirect( get_admin_url() );
         }else {

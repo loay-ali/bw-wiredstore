@@ -8,6 +8,8 @@
 :root {
 	--bw-check-icon-unicode: "\f26b";
 	--bw-checkbox-disabled-icon-unicode: "\f28a";
+	
+	--bw-loading-icon-unicode: "\f3e5";
 }
 
 .bwi::before,.bwi-social::before { font-family: "bw-main-icon";font-style: normal;}

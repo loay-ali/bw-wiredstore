@@ -1,3 +1,168 @@
+@charset "UTF-8";
+.bw-settings-field {
+  margin-block: 15px !important;
+  border-bottom: 1px solid gray;
+}
+
+.bw-window {
+  position: fixed;
+  width: 400px;
+  height: 300px;
+  top: calc(50% - 150px);
+  left: calc(50% - 200px);
+  outline: 100vmax solid #0003;
+  background: #FFF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bw-window h3 {
+  margin: 0;
+}
+
+.bw-window > section {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 10px;
+}
+
+.bw-window header,
+.bw-window footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  padding: 15px 10px;
+}
+
+.bw-window .bw-close-window:not(.button-primary) {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.bw-icon-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+button.bw-is-loading {
+  position: relative;
+}
+
+button.bw-is-loading:after,
+button.bw-is-loading:before {
+  content: "\f463";
+  font-family: "dashicons";
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  animation: bw-spin 1.5s linear infinite;
+}
+
+button.bw-is-loading:before {
+  content: "";
+  background: inherit;
+  animation: none;
+}
+
+@keyframes bw-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.bw-switch > * {
+  text-decoration: none;
+  padding: 10px;
+  margin-inline: 10px;
+  background: #DDD;
+  border-radius: 5px;
+  color: #333;
+}
+
+.bw-switch > *.active {
+  background: #007BFF;
+  color: #FFF;
+}
+
+/* Form Fields */
+.bw-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.bw-form-field {
+  max-width: 400px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bw-form-field input + button {
+  margin-inline-start: -42px !important;
+}
+
+.bw-form-field label {
+  margin-inline: 10px;
+}
+
+#bw-offer-all-products-list li {
+  padding: 10px;
+  display: flex;
+  text-align: end;
+}
+
+#bw-offer-all-products-list li:hover {
+  cursor: pointer;
+}
+
+#bw-offer-all-products-list li:nth-of-type(odd) {
+  background: #F9F9F9;
+}
+
+#bw-offer-all-products-list li.active {
+  background: #CFCFCF;
+}
+
+/* Quick Link */
+#wp-admin-bar-bw-copy-product-link > a.bw-is-done,
+.bw-product-quick-link.bw-is-done {
+  color: #0000 !important;
+}
+
+.bw-product-quick-link.bw-is-done {
+  position: relative;
+}
+
+#wp-admin-bar-bw-copy-product-link > a.bw-is-done::after,
+.bw-product-quick-link.bw-is-done::after {
+  font-family: "dashicons";
+  content: "\f12a  تم النسخ";
+  color: #28a745;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bw-product-quick-link:not(.has-row-actions.column-primary:hover .bw-product-quick-link) {
+  opacity: 0;
+}
+
 body.admin-bar {
   position: relative !important;
 }

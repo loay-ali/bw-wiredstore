@@ -47,6 +47,15 @@ class BW_Wired_Store {
 			function() {}, 
 			'dashicons-store' );
 
+		//Product Availability Notifications
+		add_submenu_page(
+			'bw-ws-menu',
+			__("Products Notifications",'bw'),
+			__("Products Notifications",'bw'),
+			'edit_users',
+			'bw-notify-me',
+			function() { require_once __DIR__ .'/templates/admin/notify-me.php';} );
+
 		//Setup Wizard
 		//-> Handled By The Class ( BW_Setup_Wizard ) -> setup_wizard()
 	}
@@ -144,6 +153,9 @@ class BW_Wired_Store {
 
 	function plugins_addition_include () {
 	
+		//Mail Class
+		require_once __DIR__ .'/inc/mails.php';
+
 		if(class_exists('woocommerce',false)) { get_template_part("inc/woocommerce/class-woocommerce"); }
 		
 		if(class_exists('Jetpack')) { get_template_part('inc/jetpack/class-jetpack');}
@@ -438,12 +450,25 @@ class BW_Wired_Store {
 		//Main Stylesheet.
 		wp_enqueue_style("style",get_stylesheet_uri('style.css'));
 
+		//Product Page Only
+		if( function_exists('is_product') && is_product() ) {
+			$user = wp_get_current_user();
+
+			wp_enqueue_script('bw-backorder',$js_dir .'backorders.js',array('jquery'),false,true);
+			wp_localize_script('bw-backorder','bw_notify_object',array(
+				'ajax-url' => get_admin_url() .'admin-ajax.php',
+				'ajax-nonce' => wp_create_nonce( 'bw_notify_me' ),
+				'bw-useremail' => empty($user->user_email) ? '':$user->user_email,
+				'bw-userphone' => get_user_meta($user->ID,'billing_phone',true)
+			));
+		}
 		//RTL
 		if( is_rtl() )
-			wp_enqueue_style('rtl-style',get_template_directory_uri(  ) .'rtl.css');
+			wp_enqueue_style('rtl-style',get_template_directory_uri(  ) .'/rtl.css');
 
 		//Smart Watch Styling.
-		wp_enqueue_style('bw-smartwatch-style',$css_dir .'smart-watch.css',array(),false,'(max-width:250px)');
+		//[edit]
+		//wp_enqueue_style('bw-smartwatch-style',$css_dir .'smart-watch.css',array(),false,'(max-width:250px)');
 
 		//Admin Styling.
 		if( is_admin_bar_showing() )	

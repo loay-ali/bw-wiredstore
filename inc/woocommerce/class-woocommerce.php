@@ -13,6 +13,9 @@ class BW_Woocommerce {
 		//Cart Counter
 		add_filter('woocommerce_add_to_cart_fragments',array($this,'cart_counter'));
 		
+		//Notify Me Mechanism
+		require_once __DIR__ .'/notify-me.php';
+
 		//Theme Supports.
 		$this->theme_support();
 		
