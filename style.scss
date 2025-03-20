@@ -885,6 +885,16 @@ button.bw-is-loading::after {
 	}
 }
 
+//Top Row
+#header-top-row {
+	
+	padding:1.25px 5px;
+	
+	display:flex;
+	justify-content: space-around;
+	align-items:center;
+}
+
 // Header
 #main-header {
 

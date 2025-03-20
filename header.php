@@ -27,6 +27,21 @@
 			<script>document.getElementById("loading").style.display='block';</script>
 		<?php endif;?>
 	
+		<?php if( get_theme_mod('bw-enable-top-row',true) == true ):?>
+		<section id = 'header-top-row'>
+			<?php
+				for($w = 1;$w <= 2;$w++) {
+					echo "<div id = 'toprow-widget-$w'>";
+					
+					if(is_active_sidebar("toprow-" . $w)) {
+						dynamic_sidebar("toprow-" . $w);
+					}
+					echo "</div>";
+				}
+			?>	
+		</section>
+		<?php endif;?>
+	
 		<header id = 'main-header'>
 		
 			<section id = 'site-identity'>

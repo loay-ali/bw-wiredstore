@@ -25,6 +25,9 @@ class BW_Wired_Store {
 
 		add_action( 'init',array($this,'disable_emojies'));
 
+		//Update Mechanism
+		add_filter('pre_set_site_transient_update_themes',array($this,'update_mechanism'));
+
 		//Menu Pages
 		add_action('admin_menu',array($this,'admin_pages'));
 
@@ -34,6 +37,32 @@ class BW_Wired_Store {
 		//Excerpt.
 		add_filter("excerpt_length",function($len) {return 20;});
 		add_filter("excerpt_more",function($more) {return "<u> ,".__("...Read More",'bw')."</u>";});
+	}
+
+	function update_mechanism($data) {
+
+		// Theme information
+		$theme   = get_stylesheet();
+		$current = wp_get_theme()->get('Version');
+		
+		$user = 'loay-ali'; 
+		$repo = 'bw-wiredstore'; 
+
+		$file = @json_decode(@file_get_contents('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest', false,
+			stream_context_create(['http' => ['header' => "User-Agent: ".$user."\r\n"]])
+		));
+		if($file) {
+			$update = filter_var($file->tag_name, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+			if($update > $current) {
+			$data->response[$theme] = array(
+				'theme'       => $theme,
+				'new_version' => $update,
+				'url'         => 'https://github.com/'.$user.'/'.$repo,
+				'package'     => $file->assets[0]->browser_download_url,
+			);
+			}
+		}
+		return $data;
 	}
 
 	function admin_pages() {
@@ -118,6 +147,7 @@ class BW_Wired_Store {
 		));
 		
 		get_template_part("inc/customize/header");
+		get_template_part("inc/customize/top-row");
 		get_template_part("inc/customize/colors");
 		get_template_part("inc/customize/border-radius");
 		get_template_part("inc/customize/inputs");
@@ -179,6 +209,17 @@ class BW_Wired_Store {
 
 	/* Register Sidebars */
 	function register_widgets () {
+		
+		//Top Row Widgets
+		for($w = 1;$w <= 2;$w++) {
+			register_sidebar(array(
+				"id" 			=> "toprow-" . $w,
+				"name" 			=> __("Top Row " . $w,'bw'),
+				"description" 	=> __("Widget Number $w In The Top Row",'bw'),
+				'before_widget' => '',
+				'after_widget'	=> ''
+			));
+		}		
 		
 		//Header Widgets. ( 2 Widgets )
 		for($w = 1;$w <= 2;$w++) {
@@ -290,6 +331,23 @@ class BW_Wired_Store {
 			
 				echo "font-family:". $fontName .",san-serif !important;";
 				echo "font-size:". get_theme_mod('bw_font_size_default','14') .'px;';
+			echo "}";
+		
+			//Top Row
+			echo "#header-top-row {";
+				$color = get_theme_mod('bw-top-row-bg-color','#FFF');
+				$opacity = (strlen($color) == 4 ? dechex(floor(get_theme_mod('bw-top-row-bg-opacity',100) * 0.15)):dechex(floor(get_theme_mod('bw-top-row-bg-opacity',100) * 2.55)));
+				$color = $color . (strlen($opacity) == 1 ? $opacity .'0':$opacity);
+				echo "background-color:". $color .";";
+				echo "background-attachment:". get_theme_mod('bw-top-row-bg-attachment','initial') .";";
+				echo "background-size:". get_theme_mod('bw-top-row-bg-size','initial') .";";
+				echo "background-position:". get_theme_mod('bw-top-row-bg-position-x','50%') .' '. get_theme_mod('bw-top-row-bg-position-y','50%') .";";
+				echo "background-repeat:". get_theme_mod('bw-top-row-bg-repeat','no-repeat') .";";
+				echo "background-image: url(". get_theme_mod('bw-top-row-bg-image','') .");";
+			echo "}";
+			
+			echo "#header-top-row * {";
+				echo "color:". get_theme_mod('bw-top-row-fg','#000') .";";
 			echo "}";
 		
 			//Header.
